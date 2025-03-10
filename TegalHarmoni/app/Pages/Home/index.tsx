@@ -1,12 +1,13 @@
+import { hotel1, hotel2, hotel3 } from '@/app/Inventory';
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Image, ImageBackground, Text, View } from 'react-native'
 
 const Home = () => {
   return (
-    <View>
-      <Text>Hallo world</Text>
-    </View>
-  )
+      <View style={{ flex: 1, backgroundColor: "#FBFBFB"}}>
+        
+      </View>
+  );
 }
 
 export default Home

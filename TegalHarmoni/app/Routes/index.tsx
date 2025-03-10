@@ -25,7 +25,6 @@ const Router = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="SplashScreen" component={SplashScreen} />
-            <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="MainApp" component={MainApp} />
         </Stack.Navigator>
     );

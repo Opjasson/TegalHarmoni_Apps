@@ -17,25 +17,25 @@ const Icon = ({ label, focus }) => {
             return focus ? (
                 <Ionicons name="home" size={28} color={"#b39070"} />
             ) : (
-                <Ionicons name="home-outline" size={28} color="#b39070" />
+                <Ionicons name="home-outline" size={28} color="#fff" />
             );
         case "Wisata":
             return focus ? (
-                <FontAwesome6 name="umbrella-beach" size={24} color="black" />
+                <FontAwesome6 name="umbrella-beach" size={24} color="#b39070" />
             ) : (
-                <FontAwesome6 name="umbrella-beach" size={24} color="black" />
+                <FontAwesome6 name="umbrella-beach" size={24} color="#fff" />
             );
         case "Kuliner":
             return focus ? (
-                <Ionicons name="fast-food" size={24} color="black" />
+                <Ionicons name="fast-food" size={24} color="#b39070" />
             ) : (
-                <Ionicons name="fast-food" size={24} color="black" />
+                <Ionicons name="fast-food" size={24} color="#fff" />
             );
         case "Hotel":
             return focus ? (
-                <FontAwesome6 name="hotel" size={24} color="black" />
+                <FontAwesome6 name="hotel" size={24} color="#b39070" />
             ) : (
-                <FontAwesome6 name="hotel" size={24} color="black" />
+                <FontAwesome6 name="hotel" size={24} color="#fff" />
             );
     }
 };
@@ -47,11 +47,13 @@ const ButtonTabs = ({ state, descriptors, navigation }) => {
         <View
             style={{
                 flexDirection: "row",
-                backgroundColor: "#111",
-                paddingTop: 25,
+                backgroundColor: "#1F1F1F",
+                paddingTop: 20,
                 paddingHorizontal: 50,
-                paddingBottom: 10,
+                paddingBottom: 15,
                 justifyContent: "space-between",
+                borderTopLeftRadius: 10,
+                borderTopRightRadius: 10,
             }}>
             {state.routes.map((route, index) => {
                 const { options } = descriptors[route.key];
