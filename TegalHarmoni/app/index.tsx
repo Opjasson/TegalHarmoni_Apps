@@ -1,9 +1,13 @@
+import { NavigationContainer, NavigationIndependentTree } from "@react-navigation/native";
 import { Text, View } from "react-native";
+import Router from "./Routes";
 
 export default function Index() {
   return (
-    <View>
-      <Text>Hallo World</Text>
-    </View>
+    <NavigationIndependentTree>
+      <NavigationContainer>
+        <Router />
+      </NavigationContainer>
+    </NavigationIndependentTree>
   );
 }
