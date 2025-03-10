@@ -4,7 +4,7 @@ import { Text, View } from 'react-native'
 const Kuliner = () => {
   return (
     <View>
-      <Text>Hallo world</Text>
+      <Text>kULINER</Text>
     </View>
   )
 }

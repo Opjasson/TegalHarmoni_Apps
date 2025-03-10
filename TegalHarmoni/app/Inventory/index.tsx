@@ -1,4 +1,4 @@
-import splashScreen from "./Img/splashScreen.png"
+import splashScreen from "./Img/splashScreen.jpg"
 
 export {
     splashScreen

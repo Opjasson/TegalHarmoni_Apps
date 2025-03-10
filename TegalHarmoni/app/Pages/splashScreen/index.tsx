@@ -20,12 +20,12 @@ const SplashScreen: React.FC<props> = ({navigation}) => {
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor={"#1F1F1F"} barStyle={"light-content"} />
-            <View>
+            <View style={styles.contMain}>
                 <Image style={styles.image} source={splashScreen} />
+            </View>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
                     <Text style={styles.butText}>Mulai</Text>
                 </TouchableOpacity>
-            </View>
         </View>
     );
 };
@@ -33,7 +33,7 @@ const SplashScreen: React.FC<props> = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#1F1F1F",
+        backgroundColor: "#202123",
         justifyContent: "center",
     },
     button: {
@@ -49,7 +49,15 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 260,
+        height: 260,
         marginHorizontal: "auto",
+    },
+    contMain: {
+        backgroundColor: "#202123",
+        width: 260,
+        marginHorizontal: 'auto',
+        elevation: 7,
+        marginBottom: 15
     },
 });
 
