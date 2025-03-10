@@ -15,6 +15,7 @@ import {
     ImageBackground,
     Image,
     TouchableOpacity,
+    Linking,
 } from "react-native";
 
 interface props {
@@ -37,11 +38,23 @@ const Hotel: React.FC<props> = ({navigation}) => {
 
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.content}>
-                    <Image source={require('../../Inventory/Img/HotelKota/riez.jpg')} style={styles.img} />
+                    <Image
+                        source={require("../../Inventory/Img/HotelKota/riez.jpg")}
+                        style={styles.img}
+                    />
                     <View style={{ marginLeft: 5 }}>
                         <Text style={styles.namaHotel}>Hotel Petra</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("Detail")}>
                             <Text style={styles.descHotel}>Terletak di </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() =>
+                                Linking.openURL(
+                                    "https://maps.app.goo.gl/73cfjZorptfunjKx7"
+                                )
+                            }>
+                            <Text>Buka maps</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
