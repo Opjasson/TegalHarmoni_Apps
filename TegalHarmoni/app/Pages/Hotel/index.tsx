@@ -35,36 +35,9 @@ const Hotel: React.FC<props> = ({navigation}) => {
                 </ImageBackground>
             </View>
 
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.content}>
-                    <Image source={hotelKhas} style={styles.img} />
-                    <View style={{ marginLeft: 5 }}>
-                        <Text style={styles.namaHotel}>Hotel Petra</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
-                            <Text style={styles.descHotel}>Terletak di </Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-                <View style={styles.content}>
-                    <Image source={hotelKhas} style={styles.img} />
-                    <View style={{ marginLeft: 5 }}>
-                        <Text style={styles.namaHotel}>Hotel Petra</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
-                            <Text style={styles.descHotel}>Terletak di </Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-                <View style={styles.content}>
-                    <Image source={hotelKhas} style={styles.img} />
-                    <View style={{ marginLeft: 5 }}>
-                        <Text style={styles.namaHotel}>Hotel Petra</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
-                            <Text style={styles.descHotel}>Terletak di </Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-                <View style={styles.content}>
-                    <Image source={hotelKhas} style={styles.img} />
+                    <Image source={require('../../Inventory/Img/HotelKota/riez.jpg')} style={styles.img} />
                     <View style={{ marginLeft: 5 }}>
                         <Text style={styles.namaHotel}>Hotel Petra</Text>
                         <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
