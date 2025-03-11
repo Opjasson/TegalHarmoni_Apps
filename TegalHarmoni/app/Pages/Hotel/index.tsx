@@ -5,7 +5,8 @@ import {
     hotelRiez,
 } from "@/app/Inventory";
 import { NavigationProp } from "@react-navigation/native";
-import React from "react";
+import Entypo from "@expo/vector-icons/Entypo";
+import React, { useEffect, useState } from "react";
 import {
     Text,
     View,
@@ -19,10 +20,22 @@ import {
 } from "react-native";
 
 interface props {
-  navigation : NavigationProp<any,any>
+    navigation: NavigationProp<any, any>;
 }
 
-const Hotel: React.FC<props> = ({navigation}) => {
+const Hotel: React.FC<props> = ({ navigation }) => {
+    const [data, setData] = useState<{id: number, nama: string, deskripsi: string, img: string, maps: string}[]>([]);
+
+    const fetchData = async () => {
+        const response = await fetch("http://192.168.217.220:5000/hotel");
+        const data = await response.json();
+
+        setData(data);
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
     return (
         <View style={styles.container}>
             <StatusBar barStyle={"light-content"} backgroundColor={"#1F1F1F"} />
@@ -37,27 +50,46 @@ const Hotel: React.FC<props> = ({navigation}) => {
             </View>
 
             <ScrollView showsVerticalScrollIndicator={false}>
-                <View style={styles.content}>
-                    <Image
-                        source={require("../../Inventory/Img/HotelKota/riez.jpg")}
-                        style={styles.img}
-                    />
-                    <View style={{ marginLeft: 5 }}>
-                        <Text style={styles.namaHotel}>Hotel Petra</Text>
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate("Detail")}>
-                            <Text style={styles.descHotel}>Terletak di </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            onPress={() =>
-                                Linking.openURL(
-                                    "https://maps.app.goo.gl/73cfjZorptfunjKx7"
-                                )
-                            }>
-                            <Text>Buka maps</Text>
-                        </TouchableOpacity>
+                {Object.values(data).map((item, index) => (
+                    <View style={styles.content} key={index}>
+                        <Image
+                            src={item.img}
+                            resizeMode="cover"
+                            style={styles.img}
+                        />
+                        <View style={{ marginLeft: 5 }}>
+                            <Text style={styles.namaHotel}>
+                                Hotel {item.nama}
+                            </Text>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate("Detail")}>
+                                <Text style={styles.descHotel}>
+                                    {item.deskripsi.substring(0, 70)}
+                                    <Text
+                                        style={{
+                                            fontSize: 10,
+                                            fontWeight: "400",
+                                            color: "blue",
+                                        }}>
+                                        {" "}
+                                        Selengkapnya...
+                                    </Text>
+                                </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => Linking.openURL(`${item.maps}`)}>
+                                <Text>
+                                    <Entypo
+                                        name="location-pin"
+                                        size={18}
+                                        color="black"
+                                    />
+                                    Buka maps
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
-                </View>
+                ))}
             </ScrollView>
         </View>
     );
@@ -94,16 +126,19 @@ const styles = StyleSheet.create({
     },
     content: {
         flexDirection: "row",
-        marginBottom: 5
+        marginBottom: 5,
     },
     namaHotel: {
         fontSize: 15,
         fontWeight: "500",
         color: "#a1a199",
+        textDecorationLine: 'underline',
+        textTransform: 'capitalize'
     },
     descHotel: {
         fontSize: 20,
         fontWeight: "bold",
+        width: 265,
     },
 });
 

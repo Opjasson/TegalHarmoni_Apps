@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import data from "./Model/dataModel.js";
 import hotelRouters from "./Routers/hotelRouters.js";
+import cors from "cors"
 
 dotenv.config();
 const app = express();
@@ -11,6 +12,8 @@ const app = express();
     await data.sync();
 })();
 
+
+app.use(cors())
 app.use(express.json());
 app.use(hotelRouters);
 
