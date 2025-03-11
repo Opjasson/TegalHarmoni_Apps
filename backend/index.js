@@ -1,9 +1,16 @@
 import express from "express";
 import dotenv from "dotenv";
+import data from "./Model/dataModel.js";
 
 dotenv.config();
 const app = express();
 
+// migrate db otomatis
+// (async () => {
+//     await data.sync();
+// })();
+
+
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port http://localhost:${process.env.PORT}`);
-})
+});
