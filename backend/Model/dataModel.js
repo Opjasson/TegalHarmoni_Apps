@@ -21,6 +21,13 @@ const data = db.define(
                 notEmpty: true,
             },
         },
+        img: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+            },
+        },
         maps: {
             type: DataTypes.STRING,
             allowNull: false,
