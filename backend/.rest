@@ -1,0 +1,13 @@
+###
+GET http://localhost:5000/hotel
+
+###
+POST http://localhost:5000/hotel HTTP/1.1
+content-type: application/json
+
+{
+    "nama" : "petra",
+    "deskripsi" : "Petra Hotel merupakan hotel rekomendasi untuk Anda, seorang backpacker yang tak hanya mengutamakan bujet, tapi juga kenyamanan saat beristirahat setelah menempuh petualangan seharian penuh. Bagi Anda yang menginginkan kualitas pelayanan oke dengan harga yang ramah di kantong, Petra Hotel adalah pilihan yang tepat. Karena meski murah, akomodasi ini menyediakan fasilitas memadai dan pelayanan yang tetap terjaga mutunya. Petra Hotel adalah tempat bermalam yang tepat bagi Anda yang berlibur bersama keluarga. Nikmati segala fasilitas hiburan untuk Anda dan keluarga. Petra Hotel adalah hotel di lokasi yang baik, tepatnya berada di Tegal Selatan.",
+    "img" : "../../Inventory/Img/HotelKota/petra.jpg",
+    "maps" : "https://maps.app.goo.gl/dDr6aawiVZwZT6kLA"
+}
