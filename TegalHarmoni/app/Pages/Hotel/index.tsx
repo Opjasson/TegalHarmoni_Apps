@@ -36,6 +36,9 @@ const Hotel: React.FC<props> = ({ navigation }) => {
         }[]
     >([]);
 
+    const [find, setFind] = useState<string>();
+    const [findLower, setFindLower] = useState<string>("");
+
     // fetching data untuk mengambil data dari API
     const fetchData = async () => {
         const response = await fetch("http://192.168.217.220:5000/hotel");
@@ -49,6 +52,15 @@ const Hotel: React.FC<props> = ({ navigation }) => {
     useEffect(() => {
         fetchData();
     }, []);
+
+    // menfilter data berdasarkan yang diketian di search
+    const filterHotel = data.filter((item) => {
+        const words = findLower.split(" ");
+        return words.some((word) => item.nama.includes(word));
+    });
+
+    console.log(filterHotel);
+
     return (
         // Tampilan Yang Memuat daftar Hotel
         <View style={styles.container}>
@@ -62,14 +74,21 @@ const Hotel: React.FC<props> = ({ navigation }) => {
                     </View>
                 </ImageBackground>
             </View>
-
+            <Text>{find}</Text>
             <View style={styles.headContent}>
-                <TextInput placeholder="Cari hotel" style={styles.searchHotel} />
+                <TextInput
+                    placeholder="Cari hotel"
+                    style={styles.searchHotel}
+                    onChangeText={(text) => {
+                        setFind(text);
+                        setFindLower(text.toLowerCase());
+                    }}
+                />
                 <Entypo name="magnifying-glass" size={24} color="black" />
             </View>
 
             <ScrollView showsVerticalScrollIndicator={false}>
-                {Object.values(data).map((item, index) => (
+                {Object.values(filterHotel).map((item, index) => (
                     <View style={styles.content} key={index}>
                         <Image
                             src={item.img}
@@ -146,18 +165,18 @@ const styles = StyleSheet.create({
     headContent: {
         backgroundColor: "#e8edea",
         width: 300,
-        marginHorizontal: 'auto',
+        marginHorizontal: "auto",
         borderRadius: 10,
         marginVertical: 8,
-        flexDirection: 'row',
-        alignItems: 'center'
+        flexDirection: "row",
+        alignItems: "center",
     },
     content: {
         flexDirection: "row",
         marginBottom: 5,
     },
     searchHotel: {
-        width: 270
+        width: 270,
     },
     namaHotel: {
         fontSize: 15,
