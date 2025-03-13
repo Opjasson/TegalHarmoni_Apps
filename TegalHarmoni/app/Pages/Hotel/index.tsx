@@ -64,7 +64,8 @@ const Hotel: React.FC<props> = ({ navigation }) => {
             </View>
 
             <View style={styles.headContent}>
-                <TextInput placeholder="Cari hotel" style={styles.findInput}/>
+                <TextInput placeholder="Cari hotel" style={styles.searchHotel} />
+                <Entypo name="magnifying-glass" size={24} color="black" />
             </View>
 
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -144,19 +145,19 @@ const styles = StyleSheet.create({
     },
     headContent: {
         backgroundColor: "#e8edea",
-    },
-    textHead: {
-        fontSize: 20,
-        fontWeight: '600'
-    },
-    findInput: {
-        borderWidth: 2,
         width: 300,
-        borderRadius: 10
+        marginHorizontal: 'auto',
+        borderRadius: 10,
+        marginVertical: 8,
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     content: {
         flexDirection: "row",
         marginBottom: 5,
+    },
+    searchHotel: {
+        width: 270
     },
     namaHotel: {
         fontSize: 15,
