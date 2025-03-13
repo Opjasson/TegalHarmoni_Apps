@@ -24,19 +24,32 @@ interface props {
 }
 
 const Hotel: React.FC<props> = ({ navigation }) => {
-    const [data, setData] = useState<{id: number, nama: string, deskripsi: string, img: string, maps: string}[]>([]);
+    // UseState = penyimpanan data sementara
+    const [data, setData] = useState<
+        {
+            id: number;
+            nama: string;
+            deskripsi: string;
+            img: string;
+            maps: string;
+        }[]
+    >([]);
 
+    // fetching data untuk mengambil data dari API
     const fetchData = async () => {
         const response = await fetch("http://192.168.217.220:5000/hotel");
         const data = await response.json();
 
+        // setData = mengisi state data dari fetching
         setData(data);
     };
 
+    // memuat data setiap halaman ini dibuka
     useEffect(() => {
         fetchData();
     }, []);
     return (
+        // Tampilan Yang Memuat daftar Hotel
         <View style={styles.container}>
             <StatusBar barStyle={"light-content"} backgroundColor={"#1F1F1F"} />
             <View style={styles.banner}>
@@ -47,6 +60,10 @@ const Hotel: React.FC<props> = ({ navigation }) => {
                         <Text style={styles.banText}>HALAMAN HOTEL</Text>
                     </View>
                 </ImageBackground>
+            </View>
+
+            <View>
+                <Text>Temukan tempat istirahat yang cocok untuk anda dan keluarga</Text>
             </View>
 
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -132,8 +149,8 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: "500",
         color: "#a1a199",
-        textDecorationLine: 'underline',
-        textTransform: 'capitalize'
+        textDecorationLine: "underline",
+        textTransform: "capitalize",
     },
     descHotel: {
         fontSize: 20,

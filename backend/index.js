@@ -8,9 +8,9 @@ dotenv.config();
 const app = express();
 
 // migrate db otomatis
-(async () => {
-    await data.sync();
-})();
+// (async () => {
+//     await data.sync();
+// })();
 
 
 app.use(cors())
