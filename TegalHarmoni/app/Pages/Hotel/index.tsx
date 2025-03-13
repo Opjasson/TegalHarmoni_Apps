@@ -17,6 +17,7 @@ import {
     Image,
     TouchableOpacity,
     Linking,
+    TextInput,
 } from "react-native";
 
 interface props {
@@ -62,8 +63,8 @@ const Hotel: React.FC<props> = ({ navigation }) => {
                 </ImageBackground>
             </View>
 
-            <View>
-                <Text>Temukan tempat istirahat yang cocok untuk anda dan keluarga</Text>
+            <View style={styles.headContent}>
+                <TextInput placeholder="Cari hotel" style={styles.findInput}/>
             </View>
 
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -140,6 +141,18 @@ const styles = StyleSheet.create({
     img: {
         height: 150,
         width: 150,
+    },
+    headContent: {
+        backgroundColor: "#e8edea",
+    },
+    textHead: {
+        fontSize: 20,
+        fontWeight: '600'
+    },
+    findInput: {
+        borderWidth: 2,
+        width: 300,
+        borderRadius: 10
     },
     content: {
         flexDirection: "row",
