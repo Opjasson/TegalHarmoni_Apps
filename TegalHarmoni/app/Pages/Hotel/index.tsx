@@ -59,7 +59,6 @@ const Hotel: React.FC<props> = ({ navigation }) => {
         return words.some((word) => item.nama.includes(word));
     });
 
-
     return (
         // Tampilan Yang Memuat daftar Hotel
         <View style={styles.container}>
@@ -173,6 +172,8 @@ const styles = StyleSheet.create({
     content: {
         flexDirection: "row",
         marginBottom: 5,
+        backgroundColor: "#e8edea",
+        paddingVertical: 3,
     },
     searchHotel: {
         width: 270,
