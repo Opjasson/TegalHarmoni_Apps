@@ -4,7 +4,7 @@ import Router from "./Routes";
 export default function Index() {
   return (
     <NavigationIndependentTree>
-      <NavigationContainer>
+      <NavigationContainer>sss
         <Router />
       </NavigationContainer>
     </NavigationIndependentTree>
