@@ -72,7 +72,8 @@ const Hotel: React.FC<props> = ({ navigation }) => {
                     </View>
                 </ImageBackground>
             </View>
-            <Text>{find}</Text>
+
+            {/* Form cari hotel */}
             <View style={styles.headContent}>
                 <TextInput
                     placeholder="Cari hotel"
@@ -84,6 +85,7 @@ const Hotel: React.FC<props> = ({ navigation }) => {
                 />
                 <Entypo name="magnifying-glass" size={24} color="black" />
             </View>
+            {/* end form cari hotel */}
 
             <ScrollView showsVerticalScrollIndicator={false}>
                 {Object.values(filterHotel).map((item, index) => (
@@ -98,7 +100,7 @@ const Hotel: React.FC<props> = ({ navigation }) => {
                                 Hotel {item.nama}
                             </Text>
                             <TouchableOpacity
-                                onPress={() => navigation.navigate("Detail")}>
+                                onPress={() => navigation.navigate("Detail", {data : item})}>
                                 <Text style={styles.descHotel}>
                                     {item.deskripsi.substring(0, 70)}
                                     <Text
