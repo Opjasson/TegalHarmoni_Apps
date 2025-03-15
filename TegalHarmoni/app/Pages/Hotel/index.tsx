@@ -59,7 +59,6 @@ const Hotel: React.FC<props> = ({ navigation }) => {
         return words.some((word) => item.nama.includes(word));
     });
 
-    console.log(filterHotel);
 
     return (
         // Tampilan Yang Memuat daftar Hotel
