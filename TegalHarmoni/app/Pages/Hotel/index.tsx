@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     descHotel: {
         fontSize: 20,
         fontWeight: "bold",
-        width: 265,
+        width: 255,
     },
 });
 
