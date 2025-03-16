@@ -27,7 +27,10 @@ const Router = () => {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="SplashScreen" component={SplashScreen} />
             <Stack.Screen
-                options={{ headerShown: true }}
+                options={{
+                    headerShown: true,
+                    headerTitle: "Kembali",
+                }}
                 name="Detail"
                 component={Detail}
             />
