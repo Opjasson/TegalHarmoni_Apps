@@ -34,8 +34,8 @@ const Detail: React.FC<props> = ({ route }) => {
                     <TouchableOpacity
                         style={styles.maps}
                         onPress={() => Linking.openURL(`${data.maps}`)}>
-                        <Entypo name="location-pin" size={18} color="black" />
-                        <Text>Buka maps</Text>
+                        <Entypo name="location-pin" size={18} color="white" />
+                        <Text style={styles.mapsText}>Buka Maps</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
         height: 300,
         marginHorizontal: "auto",
         borderRadius: 8,
+        elevation: 5
     },
     isiContent: {
         padding: 11,
@@ -75,11 +76,17 @@ const styles = StyleSheet.create({
     },
     maps: {
         backgroundColor: "#4ca836",
-        width: 100,
+        width: 120,
         borderRadius: 10,
         flexDirection: 'row',
         textAlign: 'center',
-        paddingHorizontal: 5
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        marginTop: 10,
+        elevation: 3
+    },
+    mapsText: {
+        color: 'white'
     },
     contContent: {
         backgroundColor: "#e8edea",
