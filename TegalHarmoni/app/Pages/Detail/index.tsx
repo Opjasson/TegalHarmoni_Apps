@@ -7,6 +7,7 @@ import {
     Image,
     TouchableOpacity,
     Linking,
+    ScrollView,
 } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
 
@@ -20,36 +21,47 @@ const Detail: React.FC<props> = ({ route }) => {
 
     const [data, setData] = useState(sendData);
     return (
-        <View style={styles.container}>
-            <Image resizeMode="cover" style={styles.img} src={data.img} />
-            <View style={styles.isiContent}>
-                <Text style={styles.namaHotel}>{data.nama}</Text>
-                <Text style={styles.deskripsi}>{data.deskripsi}</Text>
-                <TouchableOpacity
-                    onPress={() => Linking.openURL(`${data.maps}`)}>
-                    <Text>
+        <ScrollView
+            style={styles.container}
+            showsVerticalScrollIndicator={false}>
+            <View style={styles.contContent}>
+                <Text style={styles.topInfo}>Deskripsi Lengkap</Text>
+
+                <Image resizeMode="cover" style={styles.img} src={data.img} />
+                <View style={styles.isiContent}>
+                    <Text style={styles.namaHotel}>{data.nama}</Text>
+                    <Text style={styles.deskripsi}>{data.deskripsi}</Text>
+                    <TouchableOpacity
+                        style={styles.maps}
+                        onPress={() => Linking.openURL(`${data.maps}`)}>
                         <Entypo name="location-pin" size={18} color="black" />
-                        Buka maps
-                    </Text>
-                </TouchableOpacity>
+                        <Text>Buka maps</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-        </View>
+        </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: "center",
-        flex: 1
+        flex: 1,
+    },
+    topInfo: {
+        fontSize: 30,
+        fontWeight: "800",
+        width: 200,
+        paddingHorizontal: 10,
+        marginBottom: 7,
     },
     img: {
         width: 300,
         height: 300,
+        marginHorizontal: "auto",
+        borderRadius: 8,
     },
     isiContent: {
-        borderWidth: 2,
-        width: 410,
-        padding: 5,
+        padding: 11,
     },
     namaHotel: {
         fontSize: 25,
@@ -60,6 +72,21 @@ const styles = StyleSheet.create({
     deskripsi: {
         textAlign: "justify",
         marginTop: 5,
+    },
+    maps: {
+        backgroundColor: "#4ca836",
+        width: 100,
+        borderRadius: 10,
+        flexDirection: 'row',
+        textAlign: 'center',
+        paddingHorizontal: 5
+    },
+    contContent: {
+        backgroundColor: "#e8edea",
+        width: 360,
+        marginHorizontal: "auto",
+        borderRadius: 10,
+        marginVertical: 20,
     },
 });
 
