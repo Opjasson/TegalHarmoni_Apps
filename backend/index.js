@@ -1,7 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
-import wisata from "./Model/wisataModel.js"
+import wisata from "./Model/wisataModel.js";
 import hotelRouters from "./Routers/hotelRouters.js";
+import wisataRouters from "./Routers/wisataRouters.js";
 import cors from "cors";
 
 dotenv.config();
@@ -15,6 +16,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(hotelRouters);
+app.use(wisataRouters);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port http://localhost:${process.env.PORT}`);
