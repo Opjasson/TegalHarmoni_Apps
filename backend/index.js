@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-
+import wisata from "./Model/wisataModel.js"
 import hotelRouters from "./Routers/hotelRouters.js";
 import cors from "cors";
 
@@ -9,7 +9,7 @@ const app = express();
 
 // migrate db otomatis
 // (async () => {
-//     await data.sync();
+//     await wisata.sync();
 // })();
 
 app.use(cors());
