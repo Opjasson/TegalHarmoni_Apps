@@ -3,8 +3,8 @@ import db from "../Config/database.js";
 
 const { DataTypes } = Sequelize;
 
-const data = db.define(
-    "hotel",
+const wisata = db.define(
+    "wisata",
     {
         nama: {
             type: DataTypes.STRING,
@@ -41,4 +41,4 @@ const data = db.define(
     }
 );
 
-export default data;
+export default wisata;

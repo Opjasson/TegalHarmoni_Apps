@@ -1,9 +1,9 @@
 import { response } from "express";
-import data from "../Model/dataModel.js";
+import hotel from "../Model/hotelModel.js";
 
 export async function getData(req, res) {
     try {
-        const response = await data.findAll({
+        const response = await hotel.findAll({
             attributes: ["id", "nama", "deskripsi", "img", "maps", "createdAt"]
         });
         res.status(200).json(response);
@@ -15,7 +15,7 @@ export async function getData(req, res) {
 export async function addData(req, res) {
     const { nama, deskripsi, img, maps } = req.body;
     try {
-        await data.create({
+        await hotel.create({
             nama : nama,
             deskripsi : deskripsi,
             img : img,
