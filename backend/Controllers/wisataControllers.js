@@ -6,10 +6,7 @@ export async function getData(req, res) {
         const response = await wisata.findAll({
             attributes: ["id", "nama", "deskripsi", "img", "maps", "createdAt"],
         });
-        res.status(200).json({
-            msg: "get data succesfully",
-            data: response,
-        });
+        res.status(200).json(response);
     } catch (error) {
         response.status(500).json({ msg: error.message });
     }

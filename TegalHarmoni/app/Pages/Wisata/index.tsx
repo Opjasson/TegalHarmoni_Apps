@@ -41,7 +41,7 @@ const Wisata: React.FC<props> = ({ navigation }) => {
 
     // fetching data untuk mengambil data dari API
     const fetchData = async () => {
-        const response = await fetch("http://192.168.217.220:5000/hotel");
+        const response = await fetch("http://192.168.130.220:5000/wisata");
         const data = await response.json();
 
         // setData = mengisi state data dari fetching
@@ -97,7 +97,7 @@ const Wisata: React.FC<props> = ({ navigation }) => {
                         />
                         <View style={{ marginLeft: 5 }}>
                             <Text style={styles.namaHotel}>
-                                Hotel {item.nama}
+                                {item.nama}
                             </Text>
                             <TouchableOpacity
                                 onPress={() => navigation.navigate("Detail", {data : item})}>
