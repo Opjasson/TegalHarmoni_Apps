@@ -1,9 +1,9 @@
 import { response } from "express";
-import wisata from "../Model/wisataModel.js";
+import kuliner from "../Model/kulinerModel.js";
 
 export async function getData(req, res) {
     try {
-        const response = await wisata.findAll({
+        const response = await kuliner.findAll({
             attributes: ["id", "nama", "deskripsi", "img", "maps", "createdAt"],
         });
         res.status(200).json(response);
@@ -15,7 +15,7 @@ export async function getData(req, res) {
 export async function addData(req, res) {
     const { nama, deskripsi, img, maps } = req.body;
     try {
-        await wisata.create({
+        await kuliner.create({
             nama: nama,
             deskripsi: deskripsi,
             img: img,
