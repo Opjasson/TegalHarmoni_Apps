@@ -68,7 +68,7 @@ const Wisata: React.FC<props> = ({ navigation }) => {
                     style={styles.bgBanner}
                     source={hotelAlexander}>
                     <View style={styles.judulBan}>
-                        <Text style={styles.banText}>HALAMAN HOTEL</Text>
+                        <Text style={styles.banText}>HALAMAN KULINER</Text>
                     </View>
                 </ImageBackground>
             </View>
