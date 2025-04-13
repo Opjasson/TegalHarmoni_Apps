@@ -76,7 +76,7 @@ const Hotel: React.FC<props> = ({ navigation }) => {
             {/* Form cari hotel */}
             <View style={styles.headContent}>
                 <TextInput
-                    placeholder="Cari hotel"
+                    placeholder="Cari Hotel"
                     style={styles.searchHotel}
                     onChangeText={(text) => {
                         setFind(text);
