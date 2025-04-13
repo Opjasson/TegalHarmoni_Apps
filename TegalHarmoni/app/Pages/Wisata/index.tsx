@@ -186,6 +186,7 @@ const styles = StyleSheet.create({
         color: "#a1a199",
         textDecorationLine: "underline",
         textTransform: "capitalize",
+        width: 200
     },
     descHotel: {
         fontSize: 20,
