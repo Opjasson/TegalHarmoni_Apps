@@ -4,7 +4,7 @@ import hotel from "../Model/hotelModel.js";
 export async function getData(req, res) {
     try {
         const response = await hotel.findAll({
-            attributes: ["id", "nama", "deskripsi", "img", "maps", "createdAt"]
+            attributes: ["id", "nama", "deskripsi", "img", "maps", "createdAt"],
         });
         res.status(200).json(response);
     } catch (error) {
@@ -12,14 +12,27 @@ export async function getData(req, res) {
     }
 }
 
+export async function getDataById(req, res) {
+    try {
+        const data = await hotel.findOne({
+            where: {
+                id: req.params.id,
+            },
+        });
+        res.status(200).json(data)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export async function addData(req, res) {
     const { nama, deskripsi, img, maps } = req.body;
     try {
         await hotel.create({
-            nama : nama,
-            deskripsi : deskripsi,
-            img : img,
-            maps : maps,
+            nama: nama,
+            deskripsi: deskripsi,
+            img: img,
+            maps: maps,
         });
         res.status(201).json({ msg: "Data berhasil ditambahakan!" });
     } catch (error) {
