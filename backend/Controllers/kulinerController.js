@@ -12,6 +12,19 @@ export async function getData(req, res) {
     }
 }
 
+export async function getDataById(req, res) {
+    try {
+        const data = await kuliner.findOne({
+            where: {
+                id: req.params.id,
+            },
+        });
+        res.status(200).json(data);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export async function addData(req, res) {
     const { nama, deskripsi, img, maps } = req.body;
     try {
