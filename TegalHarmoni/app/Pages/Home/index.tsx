@@ -1,4 +1,4 @@
-import { iklan } from "@/app/Inventory";
+import { home, iklan } from "@/app/Inventory";
 import { Entypo } from "@expo/vector-icons";
 import { NavigationProp } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
@@ -43,7 +43,7 @@ const Home: React.FC<props> = ({ navigation }) => {
     }>();
 
     const fetchData = async () => {
-        const response = await fetch("http://192.168.130.220:5000/hotel/7");
+        const response = await fetch("http://192.168.246.220:5000/hotel/7");
         const satu = await response.json();
 
         // setData = mengisi state data dari fetching
@@ -51,7 +51,7 @@ const Home: React.FC<props> = ({ navigation }) => {
     };
 
     const fetchData2 = async () => {
-        const response2 = await fetch("http://192.168.130.220:5000/wisata/7");
+        const response2 = await fetch("http://192.168.246.220:5000/wisata/7");
         const satu2 = await response2.json();
 
         // setData = mengisi state data dari fetching
@@ -59,7 +59,7 @@ const Home: React.FC<props> = ({ navigation }) => {
     };
 
     const fetchData3 = async () => {
-        const response3 = await fetch("http://192.168.130.220:5000/kuliner/8");
+        const response3 = await fetch("http://192.168.246.220:5000/kuliner/8");
         const satu3 = await response3.json();
 
         // setData = mengisi state data dari fetching
@@ -75,13 +75,17 @@ const Home: React.FC<props> = ({ navigation }) => {
     return (
         <View style={styles.containerContent}>
             <ScrollView>
-                <Text>Home</Text>
+                <View style={styles.titlePage}>
+                    <Text style={styles.home}>Home</Text>
+                    <Image style={styles.icon} source={home}/>
+                </View>
                 <View>
                     <Text style={styles.head1}>Penawaran Weekend</Text>
                     <ImageBackground
                         source={iklan}
                         style={styles.iklanImg}></ImageBackground>
 
+                    <Text style={styles.head1}>Isi Penawaran</Text>
                     <View style={styles.content}>
                         <Image
                             src={data?.img}
@@ -226,6 +230,21 @@ const styles = StyleSheet.create({
         fontWeight: "800",
         padding: 5,
         textDecorationLine: "underline",
+        backgroundColor: "#AFDDFF",
+        marginTop: 10,
+    },
+    home: {
+        fontSize: 30,
+        fontWeight: "900",
+        padding: 10,
+    },
+    titlePage: {
+        flexDirection: "row",
+    },
+    icon: {
+        height: 40,
+        width: 40,
+        marginTop: 9,
     },
     iklanImg: {
         height: 200,

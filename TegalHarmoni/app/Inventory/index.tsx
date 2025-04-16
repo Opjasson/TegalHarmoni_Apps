@@ -1,9 +1,10 @@
-import splashScreen from "./Img/splashScreen.jpg"
-import hotelRiez from "./Img/HotelKota/riez.jpg"
-import hotelBahariIn from "./Img/HotelKota/bahariIn.jpg"
-import hotelKhas from "./Img/HotelKota/khas.jpg"
-import hotelAlexander from "./Img/HotelKota/alexander.jpg"
-import iklan from "./Img/iklan.png"
+import splashScreen from "./Img/splashScreen.jpg";
+import hotelRiez from "./Img/HotelKota/riez.jpg";
+import hotelBahariIn from "./Img/HotelKota/bahariIn.jpg";
+import hotelKhas from "./Img/HotelKota/khas.jpg";
+import hotelAlexander from "./Img/HotelKota/alexander.jpg";
+import iklan from "./Img/iklan.png";
+import home from "./Img/home.png";
 
 export {
     splashScreen,
@@ -11,5 +12,6 @@ export {
     hotelBahariIn,
     hotelKhas,
     hotelAlexander,
-    iklan
-}
+    iklan,
+    home,
+};
