@@ -42,6 +42,7 @@ const Home: React.FC<props> = ({ navigation }) => {
         maps: string;
     }>();
 
+    // fetching data hotel atau menambil data dari backend/API
     const fetchData = async () => {
         const response = await fetch("http://192.168.190.220:5000/hotel/7");
         const satu = await response.json();
@@ -50,6 +51,7 @@ const Home: React.FC<props> = ({ navigation }) => {
         setData(satu);
     };
 
+    // fetching data wisata atau mengambil data dari backend/API
     const fetchData2 = async () => {
         const response2 = await fetch("http://192.168.190.220:5000/wisata/7");
         const satu2 = await response2.json();
@@ -77,7 +79,7 @@ const Home: React.FC<props> = ({ navigation }) => {
             <ScrollView>
                 <View style={styles.titlePage}>
                     <Text style={styles.home}>Home</Text>
-                    <Image style={styles.icon} source={home}/>
+                    <Image style={styles.icon} source={home} />
                 </View>
                 <View>
                     <Text style={styles.head1}>Penawaran Weekend</Text>
@@ -86,6 +88,8 @@ const Home: React.FC<props> = ({ navigation }) => {
                         style={styles.iklanImg}></ImageBackground>
 
                     <Text style={styles.head1}>Isi Penawaran</Text>
+
+                    {/* Menampilkan isi penawaran hotel dari fetch hotel*/}
                     <View style={styles.content}>
                         <Image
                             src={data?.img}
@@ -131,6 +135,7 @@ const Home: React.FC<props> = ({ navigation }) => {
                         </View>
                     </View>
 
+                    {/* Menampilkan isi penawaran wisata dari fetch wisata */}
                     <View style={styles.content}>
                         <Image
                             src={data2?.img}
@@ -174,6 +179,7 @@ const Home: React.FC<props> = ({ navigation }) => {
                         </View>
                     </View>
 
+                    {/* menampilkan kuliner hasil dari fetching data kuliner */}
                     <View style={styles.content}>
                         <Image
                             src={data3?.img}
@@ -230,8 +236,9 @@ const styles = StyleSheet.create({
         fontWeight: "800",
         padding: 5,
         textDecorationLine: "underline",
-        backgroundColor: "#AFDDFF",
+        backgroundColor: "#393E46",
         marginTop: 10,
+        color: "white"
     },
     home: {
         fontSize: 30,
