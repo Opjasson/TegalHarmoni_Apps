@@ -1,8 +1,5 @@
 import {
-    hotelAlexander,
-    hotelBahariIn,
-    hotelKhas,
-    hotelRiez,
+    wisata
 } from "@/app/Inventory";
 import { NavigationProp } from "@react-navigation/native";
 import Entypo from "@expo/vector-icons/Entypo";
@@ -41,7 +38,7 @@ const Wisata: React.FC<props> = ({ navigation }) => {
 
     // fetching data untuk mengambil data dari API
     const fetchData = async () => {
-        const response = await fetch("http://192.168.130.220:5000/wisata");
+        const response = await fetch("http://192.168.190.220:5000/wisata");
         const data = await response.json();
 
         // setData = mengisi state data dari fetching
@@ -66,7 +63,7 @@ const Wisata: React.FC<props> = ({ navigation }) => {
             <View style={styles.banner}>
                 <ImageBackground
                     style={styles.bgBanner}
-                    source={hotelAlexander}>
+                    source={wisata}>
                     <View style={styles.judulBan}>
                         <Text style={styles.banText}>HALAMAN WISATA</Text>
                     </View>

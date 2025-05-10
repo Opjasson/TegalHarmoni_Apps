@@ -1,17 +1,16 @@
 import splashScreen from "./Img/splashScreen.jpg";
-import hotelRiez from "./Img/HotelKota/riez.jpg";
-import hotelBahariIn from "./Img/HotelKota/bahariIn.jpg";
-import hotelKhas from "./Img/HotelKota/khas.jpg";
 import hotelAlexander from "./Img/HotelKota/alexander.jpg";
 import iklan from "./Img/iklan.png";
 import home from "./Img/home.png";
+import wisata from "./Img/HotelKota/PAI.jpeg"
+import kuliner from "./Img/HotelKota/ayam bakar cemara.jpg"
+
 
 export {
     splashScreen,
-    hotelRiez,
-    hotelBahariIn,
-    hotelKhas,
     hotelAlexander,
     iklan,
     home,
+    wisata,
+    kuliner
 };

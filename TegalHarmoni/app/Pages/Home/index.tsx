@@ -43,7 +43,7 @@ const Home: React.FC<props> = ({ navigation }) => {
     }>();
 
     const fetchData = async () => {
-        const response = await fetch("http://192.168.246.220:5000/hotel/7");
+        const response = await fetch("http://192.168.190.220:5000/hotel/7");
         const satu = await response.json();
 
         // setData = mengisi state data dari fetching
@@ -51,7 +51,7 @@ const Home: React.FC<props> = ({ navigation }) => {
     };
 
     const fetchData2 = async () => {
-        const response2 = await fetch("http://192.168.246.220:5000/wisata/7");
+        const response2 = await fetch("http://192.168.190.220:5000/wisata/7");
         const satu2 = await response2.json();
 
         // setData = mengisi state data dari fetching
@@ -59,7 +59,7 @@ const Home: React.FC<props> = ({ navigation }) => {
     };
 
     const fetchData3 = async () => {
-        const response3 = await fetch("http://192.168.246.220:5000/kuliner/8");
+        const response3 = await fetch("http://192.168.190.220:5000/kuliner/8");
         const satu3 = await response3.json();
 
         // setData = mengisi state data dari fetching
