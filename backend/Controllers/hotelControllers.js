@@ -4,7 +4,7 @@ import hotel from "../Model/hotelModel.js";
 export async function getData(req, res) {
     try {
         const response = await hotel.findAll({
-            attributes: ["id", "nama", "deskripsi", "img", "maps", "createdAt"],
+            attributes: ["id", "nama", "deskripsi", "img", "harga", "alamat" ,"maps", "createdAt"],
         });
         res.status(200).json(response);
     } catch (error) {
