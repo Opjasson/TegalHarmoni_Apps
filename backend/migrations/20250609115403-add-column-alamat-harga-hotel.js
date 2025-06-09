@@ -1,9 +1,10 @@
 "use strict";
 
-import { STRING } from "sequelize";
+
+
 
 /** @type {import('sequelize-cli').Migration} */
-export default {
+module.exports = {
     async up(queryInterface, Sequelize) {
         /**
          * Add altering commands here.
@@ -13,12 +14,12 @@ export default {
          */
 
         await queryInterface.addColumn("hotel", "alamat", {
-            type: STRING,
+            type: Sequelize.STRING,
             allowNull: true,
         });
 
         await queryInterface.addColumn("hotel", "harga", {
-            type: STRING,
+            type: Sequelize.STRING,
             allowNull: true,
         });
     },
