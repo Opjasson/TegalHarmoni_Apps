@@ -35,6 +35,14 @@ const hotel = db.define(
                 notEmpty: true,
             },
         },
+        harga: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        alamat: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
     },
     {
         freezeTableName: true,
