@@ -31,6 +31,21 @@ const Detail: React.FC<props> = ({ route }) => {
                 <View style={styles.isiContent}>
                     <Text style={styles.namaHotel}>{data.nama}</Text>
                     <Text style={styles.deskripsi}>{data.deskripsi}</Text>
+                    {data.harga ? (
+                        <Text style={styles.harga}>
+                            Harga mulai dari : Rp.{data.harga}
+                        </Text>
+                    ) : (
+                        ""
+                    )}
+                    {data.alamat ? (
+                        <Text>
+                            alamat : Rp.{data.alamat}
+                        </Text>
+                    ) : (
+                        ""
+                    )}
+                   
                     <TouchableOpacity
                         style={styles.maps}
                         onPress={() => Linking.openURL(`${data.maps}`)}>
@@ -95,6 +110,11 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginVertical: 20,
     },
+    harga : {
+        paddingVertical : 5,
+        marginTop : 5,
+        borderTopWidth : 2,
+    }
 });
 
 export default Detail;

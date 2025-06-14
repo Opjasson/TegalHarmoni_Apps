@@ -33,6 +33,8 @@ const Hotel: React.FC<props> = ({ navigation }) => {
             deskripsi: string;
             img: string;
             maps: string;
+            harga : string;
+            alamat : string;
         }[]
     >([]);
 
@@ -41,7 +43,7 @@ const Hotel: React.FC<props> = ({ navigation }) => {
 
     // fetching data untuk mengambil data dari API
     const fetchData = async () => {
-        const response = await fetch("http://192.168.85.220:5000/hotel");
+        const response = await fetch("http://192.168.200.220:5000/hotel");
         const data = await response.json();
 
         // setData = mengisi state data dari fetching
