@@ -13,7 +13,7 @@ interface props {
     navigation: NavigationProp<any, any>;
 }
 
-const TambahBarang: React.FC<props> = ({ navigation }) => {
+const FormPromo: React.FC<props> = ({ navigation }) => {
     const [nama, setNama] = useState<string>();
     const [harga, setHarga] = useState<number>();
     const [stok, setStok] = useState<number>();
@@ -111,4 +111,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default TambahBarang;
+export default FormPromo;

@@ -83,9 +83,11 @@ const Home: React.FC<props> = ({ navigation }) => {
                 </View>
                 <View>
                     <Text style={styles.head1}>Penawaran Weekend</Text>
-                    <ImageBackground
-                        source={iklan}
-                        style={styles.iklanImg}></ImageBackground>
+                    <TouchableOpacity onPress={navigation.navigate("")}>
+                        <ImageBackground
+                            source={iklan}
+                            style={styles.iklanImg}></ImageBackground>
+                    </TouchableOpacity>
 
                     <Text style={styles.head1}>Isi Penawaran</Text>
 
@@ -238,7 +240,7 @@ const styles = StyleSheet.create({
         textDecorationLine: "underline",
         backgroundColor: "#393E46",
         marginTop: 10,
-        color: "white"
+        color: "white",
     },
     home: {
         fontSize: 30,

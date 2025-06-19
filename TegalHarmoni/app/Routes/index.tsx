@@ -34,6 +34,14 @@ const Router = () => {
                 name="Detail"
                 component={Detail}
             />
+            <Stack.Screen
+                options={{
+                    headerShown: true,
+                    headerTitle: "Kembali",
+                }}
+                name="formPromo"
+                component={Detail}
+            />
             <Stack.Screen name="MainApp" component={MainApp} />
         </Stack.Navigator>
     );
