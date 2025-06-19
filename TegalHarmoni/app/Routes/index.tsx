@@ -1,6 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { SplashScreen, Home, Kuliner, Wisata, Hotel, Detail} from "../Pages";
+import { SplashScreen, Home, Kuliner, Wisata, Hotel, Detail, FormPromo} from "../Pages";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { ButtonTabs } from "../Components";
 
@@ -40,7 +40,7 @@ const Router = () => {
                     headerTitle: "Kembali",
                 }}
                 name="formPromo"
-                component={Detail}
+                component={FormPromo}
             />
             <Stack.Screen name="MainApp" component={MainApp} />
         </Stack.Navigator>

@@ -83,7 +83,7 @@ const Home: React.FC<props> = ({ navigation }) => {
                 </View>
                 <View>
                     <Text style={styles.head1}>Penawaran Weekend</Text>
-                    <TouchableOpacity onPress={navigation.navigate("")}>
+                    <TouchableOpacity onPress={() => navigation.navigate("formPromo")}>
                         <ImageBackground
                             source={iklan}
                             style={styles.iklanImg}></ImageBackground>
