@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-import kuliner from "./Model/kulinerModel.js";
+import voucher from "./Model/codeVoucher.js";
 import hotelRouters from "./Routers/hotelRouters.js";
 import wisataRouters from "./Routers/wisataRouters.js";
 import kulinerRouters from "./Routers/kulinerRouter.js";
@@ -12,7 +12,7 @@ const app = express();
 
 // migrate db otomatis
 // (async () => {
-//     await kuliner.sync();
+//     await voucher.sync();
 // })();
 
 app.use(cors());
