@@ -10,10 +10,12 @@ export const getAllVouchers = async (req, res) => {
 };
 
 export const createVoucher = async (req, res) => {
-    // const response = await codeVoucher.findAll()
-    // if () {
+    const response = await codeVoucher.findAll();
 
-    // }
+    if (response.length >= 4) {
+      return res.status(400).json({ msg: "Promo telah habis!" });
+    }
+
     try {
         const { code } = req.body;
         await codeVoucher.create({
