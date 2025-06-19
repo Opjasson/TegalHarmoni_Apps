@@ -1,5 +1,8 @@
-import express from "express"
+import express from "express";
+import { createVoucher } from "../Controllers/codeVoucher.js";
 
-const route = express.Router()
+const route = express.Router();
 
-route.get("/voucher", )
+route.post("/voucher", createVoucher);
+
+export default route;

@@ -4,8 +4,8 @@ import voucher from "./Model/codeVoucher.js";
 import hotelRouters from "./Routers/hotelRouters.js";
 import wisataRouters from "./Routers/wisataRouters.js";
 import kulinerRouters from "./Routers/kulinerRouter.js";
+import voucherRouters from "./Routers/codeVoucher.js";
 import cors from "cors";
-
 
 dotenv.config();
 const app = express();
@@ -20,6 +20,7 @@ app.use(express.json());
 app.use(hotelRouters);
 app.use(wisataRouters);
 app.use(kulinerRouters);
+app.use(voucherRouters);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port http://localhost:${process.env.PORT}`);
