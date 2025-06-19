@@ -21,6 +21,7 @@ const FormPromo: React.FC<props> = ({ navigation }) => {
     const [noWhastapp, setNoWhastapp] = useState<string>();
     const [msgError, setMsgError] = useState<string>();
 
+    // membuat huruf random untuk code
     function generateRandomString(length: number) {
         const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let result = "";
@@ -33,8 +34,9 @@ const FormPromo: React.FC<props> = ({ navigation }) => {
     }
 
     const randomString = generateRandomString(8);
-    // console.log(randomString);
+    // -----------
 
+    // mengirim code voucher ke DB
     const handleSend = async () => {
         const response = await fetch("http://192.168.200.220:5000/voucher", {
             method: "POST",
@@ -57,11 +59,11 @@ const FormPromo: React.FC<props> = ({ navigation }) => {
 --noWhatsapp : ${noWhastapp}
 --voucher : ${randomString}
         `;
-        
+
             const url = `whatsapp://send?phone=${nomor}&text=${encodeURIComponent(
                 pesan
             )}`;
-        
+
             const supported = await Linking.canOpenURL(url);
             if (supported) {
                 await Linking.openURL(url);
@@ -70,7 +72,7 @@ const FormPromo: React.FC<props> = ({ navigation }) => {
         }
     };
 
-    // console.log(msgError);
+    // --------------
 
     return (
         <ScrollView>
