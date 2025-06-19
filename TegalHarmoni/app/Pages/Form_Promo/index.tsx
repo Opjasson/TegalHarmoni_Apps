@@ -19,52 +19,64 @@ const FormPromo: React.FC<props> = ({ navigation }) => {
     const [nama, setNama] = useState<string>();
     const [alamat, setAlamat] = useState<string>();
     const [noWhastapp, setNoWhastapp] = useState<string>();
+    const [msgError, setMsgError] = useState<string>();
+
+    function generateRandomString(length: number) {
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let result = "";
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(
+                Math.floor(Math.random() * characters.length)
+            );
+        }
+        return result;
+    }
+
+    const randomString = generateRandomString(8);
+    // console.log(randomString);
 
     const handleSend = async () => {
-        const nomor = "6285974685033"; // nomor admin
-        const pesan = `
+        const response = await fetch("http://192.168.200.220:5000/voucher", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                code: randomString,
+            }),
+        });
+
+        if (JSON.stringify(response.status) === "400") {
+            setMsgError("Voucher telah habis!");
+        } else {
+            const nomor = "6285974685033"; // nomor admin
+            const pesan = `
 **DATA PELANGGAN**
 --nama : ${nama}
 --alamat : ${alamat}
 --noWhatsapp : ${noWhastapp}
-`;
-
-        const url = `whatsapp://send?phone=${nomor}&text=${encodeURIComponent(
-            pesan
-        )}`;
-
-        const supported = await Linking.canOpenURL(url);
-        if (supported) {
-            await Linking.openURL(url);
-        } else {
-            Alert.alert("WhatsApp tidak tersedia");
+--voucher : ${randomString}
+        `;
+        
+            const url = `whatsapp://send?phone=${nomor}&text=${encodeURIComponent(
+                pesan
+            )}`;
+        
+            const supported = await Linking.canOpenURL(url);
+            if (supported) {
+                await Linking.openURL(url);
+                navigation.navigate("home");
+            }
         }
     };
 
-    // const handleSave = async () => {
-    //     try {
-    //         await fetch("http://192.168.200.220:5000/barang", {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json",
-    //             },
-    //             body: JSON.stringify({
-    //                 nama: nama,
-    //                 harga: harga,
-    //                 stok: stok,
-    //             }),
-    //         });
-    //         alert("Barang berhasil ditambahkan!");
-    //         navigation.navigate("manage-barang");
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
+    // console.log(msgError);
 
     return (
         <ScrollView>
             <View style={styles.containerForm}>
-                <Text style={styles.textLabel}>Nama Barang</Text>
+                <Text style={styles.textMessage}>{msgError}</Text>
+                <Text style={styles.textLabel}>Nama Lengkap</Text>
                 <TextInput
                     style={{
                         borderWidth: 1,
@@ -76,7 +88,7 @@ const FormPromo: React.FC<props> = ({ navigation }) => {
                     onChangeText={(text) => setNama(text)}
                 />
 
-                <Text style={styles.textLabel}>Harga</Text>
+                <Text style={styles.textLabel}>Alamat Lengkap</Text>
                 <TextInput
                     style={{
                         borderWidth: 1,
@@ -88,7 +100,7 @@ const FormPromo: React.FC<props> = ({ navigation }) => {
                     onChangeText={(text) => setAlamat(text)}
                 />
 
-                <Text style={styles.textLabel}>Stok</Text>
+                <Text style={styles.textLabel}>No Whatsapp</Text>
                 <TextInput
                     style={{
                         borderWidth: 1,
@@ -131,6 +143,11 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 18,
         paddingHorizontal: 3,
+    },
+    textMessage: {
+        fontSize: 20,
+        fontWeight: "bold",
+        color: "red",
     },
 });
 

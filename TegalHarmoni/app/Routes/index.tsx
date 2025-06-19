@@ -42,6 +42,7 @@ const Router = () => {
                 name="formPromo"
                 component={FormPromo}
             />
+            <Stack.Screen name="home" component={Home} />
             <Stack.Screen name="MainApp" component={MainApp} />
         </Stack.Navigator>
     );
