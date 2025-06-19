@@ -1,6 +1,8 @@
 import { NavigationProp } from "@react-navigation/native";
 import React, { useState } from "react";
 import {
+    Alert,
+    Linking,
     ScrollView,
     StyleSheet,
     Text,
@@ -15,8 +17,29 @@ interface props {
 
 const FormPromo: React.FC<props> = ({ navigation }) => {
     const [nama, setNama] = useState<string>();
-    const [harga, setHarga] = useState<number>();
-    const [stok, setStok] = useState<number>();
+    const [alamat, setAlamat] = useState<string>();
+    const [noWhastapp, setNoWhastapp] = useState<string>();
+
+    const handleSend = async () => {
+        const nomor = "6285974685033"; // nomor admin
+        const pesan = `
+**DATA PELANGGAN**
+--nama : ${nama}
+--alamat : ${alamat}
+--noWhatsapp : ${noWhastapp}
+`;
+
+        const url = `whatsapp://send?phone=${nomor}&text=${encodeURIComponent(
+            pesan
+        )}`;
+
+        const supported = await Linking.canOpenURL(url);
+        if (supported) {
+            await Linking.openURL(url);
+        } else {
+            Alert.alert("WhatsApp tidak tersedia");
+        }
+    };
 
     // const handleSave = async () => {
     //     try {
@@ -49,8 +72,8 @@ const FormPromo: React.FC<props> = ({ navigation }) => {
                         borderRadius: 5,
                     }}
                     keyboardType="default"
-                    placeholder="Nama barang"
-                    onChangeText={(text) => setNama(text.toLowerCase())}
+                    placeholder="Nama lengkap"
+                    onChangeText={(text) => setNama(text)}
                 />
 
                 <Text style={styles.textLabel}>Harga</Text>
@@ -60,9 +83,9 @@ const FormPromo: React.FC<props> = ({ navigation }) => {
                         marginBottom: 5,
                         borderRadius: 5,
                     }}
-                    keyboardType="numeric"
-                    placeholder="Rp."
-                    onChangeText={(text) => setHarga(Number(text))}
+                    keyboardType="default"
+                    placeholder="Alamat lengkap"
+                    onChangeText={(text) => setAlamat(text)}
                 />
 
                 <Text style={styles.textLabel}>Stok</Text>
@@ -72,14 +95,14 @@ const FormPromo: React.FC<props> = ({ navigation }) => {
                         marginBottom: 5,
                         borderRadius: 5,
                     }}
-                    placeholder="/Pcs"
+                    placeholder="No Whastapp"
                     keyboardType="numeric"
-                    onChangeText={(text) => setStok(Number(text))}
+                    onChangeText={(text) => setNoWhastapp(text)}
                 />
             </View>
             {/* End Form */}
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={handleSend}>
                 <Text style={{ color: "white" }}>Kirim</Text>
             </TouchableOpacity>
         </ScrollView>
