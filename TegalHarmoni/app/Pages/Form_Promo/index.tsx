@@ -38,7 +38,7 @@ const FormPromo: React.FC<props> = ({ navigation }) => {
 
     // mengirim code voucher ke DB
     const handleSend = async () => {
-        const response = await fetch("http://192.168.200.220:5000/voucher", {
+        const response = await fetch("change-your-IP-addressWLX/voucher", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
